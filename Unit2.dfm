@@ -10,9 +10,10 @@ object Form2: TForm2
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object ButtonOK: TButton
-    Left = 280
+    Left = 192
     Top = 232
     Width = 75
     Height = 25

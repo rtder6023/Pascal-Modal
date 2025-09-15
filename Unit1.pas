@@ -30,6 +30,7 @@ var
   ModalForm: TForm2;
 begin
   ModalForm := TForm2.Create(nil);
+  Self.Hide;
   try
     if ModalForm.ShowModal = mrOK then
     begin
@@ -42,6 +43,7 @@ begin
       ShowMessage('모달 폼에서 확인 버튼 외 다른 액션이 수행되었습니다.');
     end;
   finally
+    Show;
     ModalForm.Free;
   end;
 end;

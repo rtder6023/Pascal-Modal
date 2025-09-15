@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
+  Position = poScreenCenter
   OnKeyDown = FormKeyDown
   TextHeight = 15
   object ButtonShowModal: TButton

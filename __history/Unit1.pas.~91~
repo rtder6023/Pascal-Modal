@@ -1,0 +1,81 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Unit2;
+
+type
+  TForm1 = class(TForm)
+    ButtonShowModal: TButton;
+    procedure ButtonShowModalClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  true_count: Integer;
+  false_count: Integer;
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.ButtonShowModalClick(Sender: TObject);
+var
+  ModalForm: TForm2;
+begin
+  ModalForm := TForm2.Create(nil);
+  try
+    if ModalForm.ShowModal = mrOK then
+    begin
+      Inc(true_count);
+      ShowMessage('모달 폼에서 확인 버튼을 눌렀습니다.');
+    end
+    else
+    begin
+      Inc(false_count);
+      ShowMessage('모달 폼에서 확인 버튼 외 다른 액션이 수행되었습니다.');
+    end;
+  finally
+    ModalForm.Free;
+  end;
+end;
+
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    if Key = VK_ESCAPE then Close;
+    
+      if true_count = 0 then
+      begin
+        ShowMessage('확인 버튼을 한번 이상 누르십시오');
+      end
+      else 
+      if false_count = 0 then
+      begin 
+        ShowMessage('비확인 버튼을 한번이상 누르십시오');
+      end
+      else 
+      if
+        Key = VK_F1 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));    
+    
+
+    end;
+//    case true_count of
+//       0: ShowMessage('확인 버튼을 한번 이상 누르십시오');
+//       else if Key = VK_F1 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));
+//    end;
+//    case false_count of
+//       0: ShowMessage('비확인 버튼을 한번 이상 누르십시오');
+//       else if Key = VK_ESCAPE then Close;
+//    end;
+//    // if Key = VK_F1 then if true_count = 0 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));
+
+
+
+end.

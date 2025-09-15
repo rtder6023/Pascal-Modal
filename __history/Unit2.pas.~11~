@@ -1,0 +1,40 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm2 = class(TForm)
+    ButtonOK: TButton;
+    ButtonCancel: TButton;
+    procedure ButtonOKClick(Sender: TObject);
+    procedure ButtonCancelClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.ButtonOKClick(Sender: TObject);
+begin
+  ModalResult := mrOK; // 확인 버튼을 눌렀을 때 mrOK 값을 설정
+  Close;
+end;
+
+procedure TForm2.ButtonCancelClick(Sender: TObject);
+begin
+  ModalResult := mrCancel; // 취소 버튼을 눌렀을 때 mrCancel 값을 설정
+  Close;
+end;
+
+end.

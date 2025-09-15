@@ -65,16 +65,6 @@ begin
       else 
         if Key = VK_F1 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));    
       end;
-//    case true_count of -- CASE문 
-//       0: ShowMessage('확인 버튼을 한번 이상 누르십시오');
-//       else if Key = VK_F1 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));
-//    end;
-//    case false_count of
-//       0: ShowMessage('비확인 버튼을 한번 이상 누르십시오');
-//       else if Key = VK_ESCAPE then Close;
-//    end;
-//    // if Key = VK_F1 then if true_count = 0 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));
-
 
 
 end.

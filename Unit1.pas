@@ -30,7 +30,7 @@ var
   ModalForm: TForm2;
 begin
   ModalForm := TForm2.Create(nil);
-  Self.Hide;
+  Hide;
   try
     if ModalForm.ShowModal = mrOK then
     begin
@@ -52,7 +52,8 @@ procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
     if Key = VK_ESCAPE then Close;
-    
+    if Key = VK_F2 then ShowMessage('총합 횟수:' + IntToStr(true_count + false_count));
+
       if true_count = 0 then        // if문
         begin
           ShowMessage('확인 버튼을 한번 이상 누르십시오');
@@ -60,11 +61,10 @@ begin
       else 
         if false_count = 0 then
           begin 
-            ShowMessage('비확인 버튼을 한번 이상 누르십시오');
+            ShowMessage('모달에서 이외의 행동을 하십시오');
           end
       else 
-        if Key = VK_F1 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));    
+        if Key = VK_F1 then ShowMessage('확인 횟수:' + IntToStr(true_count) + #13#10 + '비확인 횟수:' + IntToStr(false_count));
       end;
-
 
 end.
